@@ -1,0 +1,97 @@
+<div class="choice-selector" (click)="focusInput()">
+    <!-- selected elements (normal mode) -->
+    <ng-container *ngIf="config.mode == _NGX_CHOICES_MODE.NORMAL">
+        <div 
+        class="choice" 
+        *ngFor="let value of values; let index = index;" 
+        [style.lineHeight]="config.style.choiceElementHeight" 
+        [style.height]="config.style.choiceElementHeight" 
+        [style.borderRadius]="config.style.choiceBorderRadius">
+            <div class="content" >
+                <div class="choice-text" [style.lineHeight]="config.style.choiceElementHeight">{{ value }}</div>
+            </div>
+            <div class="divider"></div>
+            <div class="delete" (click)="removeValue(value, index)">&#10005;</div>
+        </div>
+    </ng-container>
+
+    <!-- selected elements (abstract mode) -->
+    <ng-container *ngIf="config.mode == _NGX_CHOICES_MODE.ABSTRACT">
+        <div 
+        class="choice" 
+        *ngFor="let value of values; let index = index;" 
+        [style.height]="config.style.choiceElementHeight" 
+        [style.borderRadius]="config.style.choiceBorderRadius">
+            <div class="content">
+                <div class="choice-avatar" *ngIf="config.avatar && value[config.avatar]">
+                    <img 
+                    [src]="value[config.avatar]" 
+                    [alt]="value[config.label]"
+                    [style.width]="config.style.choiceElementHeight"
+                    [style.height]="config.style.choiceElementHeight"
+                    [style.borderRadius]="config.style.choiceElementHeight"
+                    />
+                </div>
+                <div class="choice-avatar" *ngIf="config.avatar_url && config.avatar && !value[config.avatar]">
+                    <img 
+                    [src]="config.avatar_url" 
+                    [alt]="value[config.label]"
+                    [style.width]="config.style.choiceElementHeight"
+                    [style.height]="config.style.choiceElementHeight"
+                    [style.borderRadius]="config.style.choiceElementHeight"
+                    />
+                </div>
+                <div class="choice-text" [style.lineHeight]="config.style.choiceElementHeight">{{ value[config.label] }}</div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="delete" (click)="removeValue(value, index)">&#10005;</div>
+        </div>
+    </ng-container>
+
+    <!-- input element -->
+    <div class="query-input" [class.hidden]="(isSingleSelector && values.length >= 1) || (config.hideInputOnMaxSelections && isAtMaxSelection)">
+        <input 
+        name="query" 
+        type="text" 
+        autocomplete="off" 
+        [pattern]="config.pattern" 
+        [placeholder]="config.placeholder" 
+        [style.height]="config.style.choiceElementHeight" 
+        [style.minWidth]="config.style.minInputWidth" 
+        [formControl]="inputCtrl"
+        [class.extraPadding]="values.length == 0 && isSingleSelector" 
+        (input)="onQueryType()"
+        #input appAutoSizeInput/>
+    
+        <!-- loading animation -->
+        <span class="choices-spinner" *ngIf="loading">
+            <span class="loader"></span>
+        </span>
+    </div>
+</div>
+
+<div class="items-dropdown" *ngIf="isDropdownOpened">
+    <!-- alert message -->
+    <div *ngIf="isAtMaxSelections" class="items-dropdown-alert">
+        You can not select more than {{ config.maxSelections }} items.
+    </div>
+
+    <!-- items -->
+    <ng-container *ngFor="let item of filteredItems; let index = index;">
+        <div *ngIf="!isItemSelected(item)" 
+        class="items-dropdown-item" 
+        (click)="itemClicked(item, $event)">
+            <div class="choice-item-avatar" *ngIf="config.avatar && item[config.avatar]">
+                <img [src]="item[config.avatar]" [alt]="item[config.label]">
+            </div>
+            <div class="choice-item-avatar" *ngIf="config.avatar_url && config.avatar && !item[config.avatar]">
+                <img [src]="config.avatar_url" [alt]="item[config.label]">
+            </div>
+            <div class="choice-item-text">
+                {{ item[config.label] }}
+                <div class="choice-item-meta" *ngIf="config.meta && item[config.meta]">{{ item[config.meta] }}</div>
+            </div>
+        </div>
+    </ng-container>
+</div>

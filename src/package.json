@@ -1,0 +1,43 @@
+{
+  "name": "ngx-choices",
+  "version": "1.1.0-rc.9",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thatisuday/ngx-choices"
+  },
+  "author": {
+    "name": "Uday Hiwarale",
+    "email": "thatisuday@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "typehead",
+    "choices",
+    "typescript",
+    "angular 4+",
+    "ngx-choices",
+    "multiple select",
+    "tags"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thatisuday/ngx-choices/issues"
+  },
+  "main": "ngx-choices.umd.js",
+  "module": "ngx-choices.js",
+  "jsnext:main": "ngx-choices.js",
+  "typings": "ngx-choices.d.ts",
+  "dependencies": {
+    "choices.js": "^3.0.2",
+    "fuse-js-next": "^1.0.1",
+    "lodash": "^4.17.4",
+    "ngx-autosize-input": "^1.1.1"
+  },
+  "peerDependencies": {
+    "@angular/core": ">4.3.0",
+    "@angular/forms": ">4.3.0",
+    "@angular/common": ">4.3.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
