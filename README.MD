@@ -75,6 +75,9 @@ Sends alert notification occured during user interactions.
 ## multiple (attr)
 User will be able to select multiple choices.
 
+## disabled (attr)
+To disable user interaction, just like when button or form control is disabled.
+
 # interface
 ```ts
 interface NGX_CHOICES_CONF {
