@@ -8,16 +8,19 @@ Angular 4+ typehead to search and select multiple tags.
 [![David](https://img.shields.io/david/thatisuday/ngx-choices.svg?style=flat-square)](https://www.npmjs.com/package/ngx-choices)
 [![preview](https://img.shields.io/badge/preview-click_here-green.svg?style=flat-square)](https://thatisuday.github.io/ngx-choices/dist/)
 
+
 # Peer dependencies
 - "@angular/core": ">4.3.0",
 - "@angular/forms": ">4.3.0",
 - "@angular/common": ">4.3.0",
+
 
 # Installation
 
 ```bash
 npm i -S ngx-choices@latest
 ```
+
 
 # Import module
 ```ts
@@ -35,6 +38,7 @@ import { NgxChoicesModule } from 'ngx-choices';
   bootstrap: [AppComponent]
 })
 ```
+
 
 # Use cases
 ## Inside form as form control
@@ -56,6 +60,7 @@ import { NgxChoicesModule } from 'ngx-choices';
 <ngx-choices name="choices" [items]="items" [config]="config" (onChange)="changed($event)" (onType)="typed($event)" (onError)="erred($event)" multiple></ngx-choices>
 ```
 
+
 # Nomenclature
 ### items (binding)
 Dropdown items to choose **choice** from.
@@ -66,17 +71,18 @@ Dropdown items to choose **choice** from.
 ### onChange (event)
 When user adds or removes choices. Emits changed values.
 
-## onType (event)
+### onType (event)
 When user types inside input box to search from items or to add custom value.   Emits typed value.
 
-## onError (event)
+### onError (event)
 Sends alert notification occured during user interactions.
 
-## multiple (attr)
+### multiple (attr)
 User will be able to select multiple choices.
 
-## disabled (attr)
+### disabled (attr)
 To disable user interaction, just like when button or form control is disabled.
+
 
 # interface
 ```ts
@@ -177,6 +183,7 @@ enum NGX_CHOICES_MODE {
 }
 ```
 
+
 # constant
 ```ts
 const REGEX_TYPES = {
@@ -218,6 +225,7 @@ const DEFAULT_CONF: NGX_CHOICES_CONF = {
     }
 };
 ```
+
 
 # Copyrights
 Integrate or build upon it for free in your personal or commercial projects. Don't republish, redistribute or sell "as-is". We would appreciate if you contact us at `thatisuday@gmail.com` (if you are a business, institution or organization) so that we can mention your name in **users list** on this page.
