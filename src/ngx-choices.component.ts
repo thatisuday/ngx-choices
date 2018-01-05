@@ -393,7 +393,12 @@ export class NgxChoicesComponent implements OnInit, OnChanges, ControlValueAcces
   propagateChange = (values: any) => {};
   writeValue(values: any): void {
     if(!_.isNil(values)) {
-      values.forEach((value) => this.addValue(value, false));
+      if(_.isArray(values)) {
+        values.forEach((value) => this.addValue(value, false));
+      }
+      else {
+        this.addValue(values, false);
+      }
     }
   }
   registerOnChange(fn: any): void {

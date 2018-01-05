@@ -177,6 +177,12 @@ gulp.task('copy:build', function () {
   return gulp.src([`${buildFolder}/**/*`, `!${buildFolder}/**/*.js`])
     .pipe(gulp.dest(distFolder));
 });
+gulp.task('copy:readme', function () {
+  return gulp.src('./README.MD')
+    .pipe(gulp.dest(distFolder));
+});
+
+
 
 /**
  * 8. Copy package.json from /src to /dist
@@ -217,6 +223,7 @@ gulp.task('compile', function () {
     'rollup:fesm',
     'rollup:umd',
     'copy:build',
+    'copy:readme',
     'copy:manifest',
     'copy:readme',
     'clean:build',

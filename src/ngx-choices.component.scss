@@ -70,6 +70,10 @@
                         >img{
                             border-top-right-radius: 0px !important;
                             border-bottom-right-radius: 0px !important;
+                            
+                            &.circular{
+                                border-radius: 100% !important;
+                            }
                         }
                     }
         

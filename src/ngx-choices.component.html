@@ -30,6 +30,7 @@
                     [style.width]="config.style.choiceElementHeight"
                     [style.height]="config.style.choiceElementHeight"
                     [style.borderRadius]="config.style.choiceElementHeight"
+                    [class.circular]="isSingleSelector"
                     />
                 </div>
                 <div class="choice-avatar" *ngIf="config.avatar_url && config.avatar && !value[config.avatar]">
