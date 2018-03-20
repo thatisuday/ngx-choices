@@ -1,0 +1,10 @@
+<div class="container">
+	<form #f="ngForm" (ngSubmit)="submit(f)">
+		<div class="form-group">
+			<label>Enter email address(es)</label>
+			<ngx-choices name="choices" [items]="items" [config]="config" [(ngModel)]="choices" required multiple></ngx-choices>
+		</div>      
+
+		<button type="submit" [disabled]="!f.valid">Submit</button>
+	</form>
+</div>
