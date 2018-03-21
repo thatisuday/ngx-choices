@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>
+    <a href="https://github.com/thatisuday/ngx-choices">ngx-choices</a>
+  </h1>
+
+  <form #f="ngForm" (ngSubmit)="submit(f)">
+      <ngx-choices name="choices" [items]="items" [config]="config" [(ngModel)]="choices" (onChange)="showChanges($event)" (onType)="showQuery($event)" (onError)="showError($event)" required multiple></ngx-choices>
+
+      <div class="button-container">
+        <button class="btn btn-sm btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+      </div>
+  </form>
+</div>

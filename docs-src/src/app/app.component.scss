@@ -1,0 +1,15 @@
+.container{
+    width: 100%;
+    max-width: 700px;
+    margin: 50px auto;
+
+    >h1{
+        text-align: center;
+    }
+
+    >form{
+        >.button-container{
+            margin-top: 10px;
+        }
+    }
+}
